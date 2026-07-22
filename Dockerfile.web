@@ -1,0 +1,25 @@
+FROM node:22-slim AS frontend-build
+
+WORKDIR /src/web/frontend
+COPY web/frontend/package.json web/frontend/package-lock.json* ./
+RUN npm install
+COPY web/frontend .
+# vite.config.js кладёт сборку в ../static/dist относительно этой папки, т.е. /src/web/static/dist
+RUN npm run build
+
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements-web.txt .
+RUN pip install --no-cache-dir -r requirements-web.txt
+
+# app/ нужен и здесь — это общая логика с ботом (db.py, config.py, photos.py)
+COPY app ./app
+COPY web ./web
+COPY --from=frontend-build /src/web/static/dist ./web/static/dist
+
+RUN mkdir -p /app/data/uploads
+
+CMD ["uvicorn", "web.main:app", "--host", "0.0.0.0", "--port", "8000"]

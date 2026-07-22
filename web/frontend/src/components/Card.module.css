@@ -1,0 +1,57 @@
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+.card:hover { box-shadow: var(--shadow); }
+
+.photo { width: 100%; height: 160px; object-fit: cover; background: var(--surface-2); }
+
+.body { padding: 18px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+.title { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.meta { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+.meta a { color: var(--accent); }
+.tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  width: fit-content;
+}
+.tagWishlist { background: var(--rose-soft); color: var(--rose); }
+.tagMovie { background: var(--blue-soft); color: var(--blue); }
+.tagBill { background: var(--amber-soft); color: var(--amber); }
+.tagAlbum { background: var(--emerald-soft); color: var(--emerald); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 18px; }
+.actions button {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink-soft);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .12s ease, color .12s ease, border-color .12s ease;
+}
+.actions button:hover { border-color: var(--ink-faint); color: var(--ink); }
+.actions button.danger:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-soft); }
+
+.albumCard { cursor: pointer; }
+.albumCard:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.hint { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+
+.ratingStars { font-size: 18px; letter-spacing: 3px; margin-top: 2px; }
+.ratingStars span { cursor: pointer; color: var(--amber); transition: transform .1s ease; display: inline-block; }
+.ratingStars span:hover { transform: scale(1.2); }

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+data/
+
+# frontend build artifacts (собираются в Dockerfile.web / npm run build)
+web/frontend/node_modules/
+web/frontend/dist/
+web/static/dist/
+
+.DS_Store
+
+# локальные разрешения Claude Code, не для коммита
+.claude/settings.local.json
