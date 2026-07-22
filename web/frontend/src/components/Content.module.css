@@ -29,7 +29,7 @@
   transition: background .12s ease, color .12s ease;
 }
 .subTab:hover { background: var(--surface-2); }
-.subTab.active { background: var(--ink); color: white; border-color: var(--ink); }
+.subTab.active { background: #14161B; color: white; border-color: #14161B; }
 
 .emptyHint { color: var(--ink-faint); padding: 48px 0; text-align: center; font-size: 14px; }
 

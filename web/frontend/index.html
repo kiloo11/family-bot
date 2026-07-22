@@ -6,6 +6,16 @@
 <title>Семейный органайзер</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Ставим data-theme до первой отрисовки React, чтобы не было вспышки не той темы.
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 <div id="root"></div>

@@ -47,7 +47,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--ink);
+  background: #14161B;
   color: white;
   text-decoration: none;
   font-weight: 600;

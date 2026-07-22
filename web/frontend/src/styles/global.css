@@ -1,4 +1,4 @@
-:root {
+:root, :root[data-theme="light"] {
   --bg: #F4F5F7;
   --surface: #FFFFFF;
   --surface-2: #FAFBFC;
@@ -28,6 +28,36 @@
   --shadow-lg: 0 12px 32px rgba(20, 22, 27, 0.12);
 }
 
+:root[data-theme="dark"] {
+  --bg: #101217;
+  --surface: #181B22;
+  --surface-2: #1E222B;
+  --border: #2C303B;
+  --ink: #F1F2F5;
+  --ink-soft: #9CA1AC;
+  --ink-faint: #6C7280;
+
+  --accent: #6D67F1;
+  --accent-hover: #7F79FF;
+  --accent-soft: #262B52;
+
+  --rose: #FB7185;
+  --rose-soft: #3A1722;
+  --blue: #60A5FA;
+  --blue-soft: #142338;
+  --amber: #FBBF24;
+  --amber-soft: #332508;
+  --emerald: #34D399;
+  --emerald-soft: #0E2E27;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -37,6 +67,7 @@ body {
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background-color .15s ease, color .15s ease;
 }
 
 h1, h2 { font-family: 'Manrope', sans-serif; margin: 0; letter-spacing: -0.02em; }

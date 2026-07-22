@@ -27,6 +27,19 @@ export default function App() {
   const [albumPhotos, setAlbumPhotos] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
+  const [theme, setTheme] = useState(
+    () => document.documentElement.getAttribute("data-theme") || "light",
+  );
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  }
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const err = params.get("auth_error");
@@ -134,7 +147,13 @@ export default function App() {
 
   return (
     <div className={styles.app}>
-      <Sidebar user={user} currentCategory={currentCategory} onSwitchCategory={switchCategory} />
+      <Sidebar
+        user={user}
+        currentCategory={currentCategory}
+        onSwitchCategory={switchCategory}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       <main className={contentStyles.content}>
         {!albumItem && (
