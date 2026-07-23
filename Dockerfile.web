@@ -2,7 +2,7 @@ FROM node:22-slim AS frontend-build
 
 WORKDIR /src/web/frontend
 COPY web/frontend/package.json web/frontend/package-lock.json* ./
-RUN npm install
+RUN npm ci
 COPY web/frontend .
 # vite.config.js кладёт сборку в ../static/dist относительно этой папки, т.е. /src/web/static/dist
 RUN npm run build
